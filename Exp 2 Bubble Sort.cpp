@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+int main() {
+    int n, i, j, temp;
+    printf("Enter number of students: ");
+    scanf("%d", &n);
+
+    int marks[n];
+
+    for(i = 0; i < n; i++) {
+        printf("Enter marks of student %d: ", i+1);
+        scanf("%d", &marks[i]);
+    }
+
+    for(i = 0; i < n-1; i++) {
+        for(j = 0; j < n-i-1; j++) {
+            if(marks[j] > marks[j+1]) {
+                temp = marks[j];
+                marks[j] = marks[j+1];
+                marks[j+1] = temp;
+            }
+        }
+    }
+
+    printf("\nMarks in ascending order:\n");
+    for(i = 0; i < n; i++) {
+        printf("%d ", marks[i]);
+    }
+
+    return 0;
+}
